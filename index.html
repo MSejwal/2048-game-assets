@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Game Sound Tester</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      background-color: #f4f4f4;
+      padding: 50px;
+    }
+    button {
+      font-size: 18px;
+      padding: 10px 20px;
+      margin: 10px;
+      border-radius: 10px;
+      border: none;
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎮 Game Audio Tester</h1>
+
+  <button onclick="playSound('bgMusic')">▶️ Play Background Music</button><br>
+  <button onclick="playSound('click')">🖱️ Click Sound</button>
+  <button onclick="playSound('move')">↔️ Move Sound</button><br>
+  <button onclick="playSound('merge')">🧩 Merge Sound</button>
+  <button onclick="playSound('gameOver')">💀 Game Over Sound</button>
+
+  <script>
+    const sounds = {
+      bgMusic: new Audio("sounds/bgMusic.mp3"),
+      click: new Audio("sounds/clickSound.mp3"),
+      move: new Audio("sounds/moveSound.mp3"),
+      merge: new Audio("sounds/mergeSound.wav"),
+      gameOver: new Audio("sounds/gameOverSound.mp3")
+    };
+
+    sounds.bgMusic.loop = true;
+
+    function playSound(name) {
+      if (sounds[name]) {
+        sounds[name].currentTime = 0;
+        sounds[name].play();
+      }
+    }
+  </script>
+
+</body>
+</html>
